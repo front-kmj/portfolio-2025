@@ -1,0 +1,97 @@
+@mixin mobile {
+    @media (max-width: #{$breakpoint-tablet - 1px}) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media (max-width: #{$breakpoint-desktop}) {
+        @content;
+    }
+}
+
+@mixin font-type($font-shape){
+    font-family: $primary-kr;
+    @if($font-shape == "font-xlg"){
+        font-weight: 700;
+        font-size: 54px;
+    }
+    @if($font-shape == "font-lg"){
+        font-weight: 700;
+        font-size: 30px;
+    }
+    @if($font-shape == "font-md"){
+        font-weight: 500;
+        font-size: 20px;
+    }
+    @if($font-shape == "font-sm"){
+        font-weight: 400;
+        font-size: 16px;
+    }
+
+    // @media (max-width: #{$breakpoint-desktop - 1px}) {
+    //     @if($font-shape == "font-xlg"){
+    //         font-size: 40px;
+    //     }
+    //     @if($font-shape == "font-lg"){
+    //         font-size: 28px;
+    //     }
+    //     @if($font-shape == "font-md"){
+    //         font-size: 18px;
+    //     }
+    //     @if($font-shape == "font-sm"){
+    //         font-size: 14px;
+    //     }
+    // }
+
+    // @media (min-width: #{$breakpoint-mobile}) and (max-width: #{$breakpoint-tablet - 1px}) {
+    //     @if($font-shape == "font-xlg"){
+    //         font-size: 2.25rem;
+    //     }
+    //     @if($font-shape == "font-lg"){
+    //         font-size: 1.25rem;
+    //     }
+    //     @if($font-shape == "font-md"){
+    //         font-size: 0.833rem;
+    //     }
+    //     @if($font-shape == "font-sm"){
+    //         font-size: 0.667rem;
+    //     }
+    // }
+}
+@mixin center-flex{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+@mixin center-position{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+@mixin position($position, $top: null, $right: null, $bottom: null, $left: null) {
+    position: $position;
+    top: $top;
+    right: $right;
+    bottom: $bottom;
+    left: $left;
+}
+@mixin text-blind{
+    font-size: 0;
+    text-indent: -9999px;
+}
+@mixin ellipsis {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+@mixin line-clamp($lines, $line-height) {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: $lines;
+    -webkit-box-orient: vertical;
+    line-height: $line-height;
+    max-height: ($line-height * $lines);
+}
+

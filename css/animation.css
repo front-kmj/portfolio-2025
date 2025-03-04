@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+@keyframes textMark {
+  0%{width: 0%;}
+  90%{width: 100%;}
+  100%{opacity: 0;}
+}
+@keyframes strokeAni {
+  0% {stroke: #333333;stroke-width: 3px;stroke-dashoffset: 326px;}
+  30%{opacity: 0;}
+  40%{opacity: 1;}
+  50%{opacity: 0;}
+  60%{opacity: 1;}
+  70% {fill: transparent;}
+  98% {stroke: #fff;fill: #555;stroke-width: 3px;}
+  100% {fill: rgba(255,255,255,0.9);stroke-dashoffset: 0px;}
+}
+@keyframes scroll-effect {
+  0%{top:5px}
+  100%{top:40px;opacity: 0;}
+}
+@keyframes text-loop01 {
+  0%{transform: translate3d(0,0,0);}
+  100%{transform: translate3d(-100%,0,0);}
+}
+@keyframes text-loop02 {
+  0%{transform: translate3d(-100%,0,0);}
+  100%{transform: translate3d(0,0,0);}
+}
