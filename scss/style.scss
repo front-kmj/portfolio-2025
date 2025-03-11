@@ -7,7 +7,7 @@
     margin: 0;
 }
 
-body{background-color: $white;}
+body{background-color: $white;position: relative;}
 
 .inner-container{
     width: 1200px;
@@ -471,6 +471,39 @@ header{
                             margin: 10px 0 0 0;
                         }
                     }
+                    .career-btn{
+                        position: relative;
+                        @include font-type(font-sm);
+                        color: $white;
+                        background-color: $black;
+                        margin-top: 10px;
+                        padding: 0 25px 0 15px;
+                        height: 30px;
+                        line-height: 30px;
+                        text-align: center;
+                        border-radius: 3px;
+                        transition: background-color 0.5s;
+                        &:hover{
+                            background-color: $royalblue;
+                        }
+                        &::before{
+                            content: "";
+                            @include position(absolute, $top:50%, $right:10px);
+                            transform: translateY(-50%) rotate(-45deg);
+                            width: 7px;
+                            height: 7px;
+                            border-bottom: 2px solid #fff;
+                            border-right: 2px solid #fff;
+                        }
+                        @include mobile{
+                            font-size: 14px;
+                            @include center-flex;
+                            &::before{
+                                width: 5px;
+                                height: 5px;
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -568,6 +601,7 @@ header{
                 border-radius: 5px;
                 background-color: $white;
                 position: relative;
+                overflow: hidden;
                 @include tablet{
                     width: 100%;
                 }
@@ -579,6 +613,7 @@ header{
                     max-width: 100%;
                     max-height: 100%;
                     @include center-position;
+                    transition: transform 0.5s;
                 }
                 &::before{
                     content: "";
@@ -586,17 +621,14 @@ header{
                     z-index: 1;
                     width: 100%;
                     height: 100%;
-                    background-color: rgba(0,0,0,0.3);
-                    transition: opacity 0.5s;
-                    @include tablet{
-                        display: none;
-                    }
+                    background-color: rgba(0,0,0,0.03);
+                    border-radius: 3px;
                 }
             }
             &:hover{
                 .project-img{
-                    &::before{
-                        opacity: 0;
+                    img{
+                        transform: translate(-50%,-50%) scale(1.1);
                     }
                 }
             }
@@ -640,7 +672,7 @@ header{
                     @include font-type(font-sm);
                     color: $white;
                     background-color: $black;
-                    margin-top: 15px;
+                    margin-top: 20px;
                     width: 120px;
                     height: 50px;
                     line-height: 50px;
@@ -655,7 +687,6 @@ header{
                     }
                     @include mobile{
                         font-size: 14px;
-                        margin-top: 10px;
                     }
                 }
             }
@@ -735,7 +766,7 @@ footer{
 
 .floating-btn-box{
     @include position(fixed, $bottom:50px, $right:50px);
-    z-index: 10;
+    z-index: 5;
     display: none;
     @include tablet{
         bottom: 25px;
@@ -758,3 +789,134 @@ footer{
     }
 }
 // floating-btn-box
+
+.career{
+    @include position(fixed, $top:0, $left:0, $right:0, $bottom:0);
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    padding: 100px;
+    overflow-y: scroll;
+    display: none;
+    &.on{
+        display: block
+    }
+    @media (max-width:1400px){
+        padding: 0;
+    }
+    .inner-container{
+        background-color: $white;
+        box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    }
+    .tit{
+        @include font-type(font-xlg);
+        color: $black;
+        padding: 50px 0;
+        position: relative;
+        @include mobile{
+            font-size: 40px;
+        }
+        .career-close{
+            @include position(absolute, $top:50px, $right:15px);
+            z-index: 15;
+            width: 30px;
+            height: 30px;
+            @include mobile{
+                top: 25px;
+            }
+            &::before,
+            &::after{
+                content: "";
+                @include position(absolute, $top:50%, $left:50%);
+                width: 100%;
+                height: 2px;
+                background-color: $black;
+            }
+            &::before{
+                transform: translate(-50%,-50%) rotate(45deg);
+            }
+            &::after{
+                transform: translate(-50%,-50%) rotate(-45deg);
+            }
+        }
+    }
+    .list-box{
+        border-top: 1px solid $silver-gray;
+        .list-tit{
+            @include font-type(font-lg);
+            color: $black;
+            padding: 30px 0;
+            @include mobile{
+                font-size: 24px;
+            }
+        }
+        .item-wrap{
+            display: flex;
+            @include mobile{
+                flex-direction: column;
+            }
+            .list-item{
+                &.left-list{
+                    width: 30%;
+                    @include mobile{
+                        width: 100%;
+                    }
+                }
+                &.right-list{
+                    width: 70%;
+                    @include mobile{
+                        width: 100%;
+                    }
+                    ul{
+                        padding-bottom: 20px;
+                        &.p-line{
+                            li{
+                                position: relative;
+                                padding: 5px 0 5px 25px;
+                                &::before{
+                                    display:none;
+                                }
+                                .num{
+                                    @include position(absolute, $top:50%, $left:0);
+                                    transform: translateY(-50%);
+                                    @include font-type(font-sm);
+                                    color: $black;
+                                }
+                            }
+                        }
+                        li{
+                            @include font-type(font-sm);
+                            padding: 5px 0 5px 10px;
+                            position: relative;
+                            color: #000;
+                            &::before{
+                                content: "";
+                                @include position(absolute, $top:50%, $left:0);
+                                transform: translateY(-50%);
+                                width: 5px;
+                                height: 2px;
+                                background-color: $light-black;
+                            }
+                        }
+                    }
+                }
+                em{
+                    @include font-type(font-md);
+                    color: $black;
+                    margin-bottom: 10px;
+                    display: block;
+                    span{
+                        @include font-type(font-sm);
+                        color: $light-black;
+                        display: block;
+                        margin-top: 10px;
+                    }
+                    @include mobile{
+                        margin: 10px 0 20px;
+                    }
+                }
+            }
+        }   
+    }
+}
+// career

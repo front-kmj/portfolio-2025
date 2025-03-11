@@ -13,6 +13,7 @@
 
 body {
   background-color: #FFFFFF;
+  position: relative;
 }
 
 .inner-container {
@@ -608,6 +609,47 @@ header nav .ham-menu.on span::after {
     margin: 10px 0 0 0;
   }
 }
+.page-two .about-experience .ep-line ul li .career-btn {
+  position: relative;
+  font-family: "Noto Sans KR", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #FFFFFF;
+  background-color: #000000;
+  margin-top: 10px;
+  padding: 0 25px 0 15px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  border-radius: 3px;
+  transition: background-color 0.5s;
+}
+.page-two .about-experience .ep-line ul li .career-btn:hover {
+  background-color: #006BE5;
+}
+.page-two .about-experience .ep-line ul li .career-btn::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%) rotate(-45deg);
+  width: 7px;
+  height: 7px;
+  border-bottom: 2px solid #fff;
+  border-right: 2px solid #fff;
+}
+@media (max-width: 767px) {
+  .page-two .about-experience .ep-line ul li .career-btn {
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .page-two .about-experience .ep-line ul li .career-btn::before {
+    width: 5px;
+    height: 5px;
+  }
+}
 .page-two .text-x-wrap {
   width: 100%;
   overflow: hidden;
@@ -717,6 +759,7 @@ header nav .ham-menu.on span::after {
   border-radius: 5px;
   background-color: #FFFFFF;
   position: relative;
+  overflow: hidden;
 }
 @media (max-width: 1200px) {
   .page-three .project-wrap .project-box .project-img {
@@ -736,6 +779,7 @@ header nav .ham-menu.on span::after {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  transition: transform 0.5s;
 }
 .page-three .project-wrap .project-box .project-img::before {
   content: "";
@@ -746,16 +790,11 @@ header nav .ham-menu.on span::after {
   z-index: 1;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.3);
-  transition: opacity 0.5s;
+  background-color: rgba(0, 0, 0, 0.03);
+  border-radius: 3px;
 }
-@media (max-width: 1200px) {
-  .page-three .project-wrap .project-box .project-img::before {
-    display: none;
-  }
-}
-.page-three .project-wrap .project-box:hover .project-img::before {
-  opacity: 0;
+.page-three .project-wrap .project-box:hover .project-img img {
+  transform: translate(-50%, -50%) scale(1.1);
 }
 .page-three .project-wrap .project-box .project-information {
   display: flex;
@@ -814,7 +853,7 @@ header nav .ham-menu.on span::after {
   font-size: 16px;
   color: #FFFFFF;
   background-color: #000000;
-  margin-top: 15px;
+  margin-top: 20px;
   width: 120px;
   height: 50px;
   line-height: 50px;
@@ -833,7 +872,6 @@ header nav .ham-menu.on span::after {
 @media (max-width: 767px) {
   .page-three .project-wrap .project-box .project-information .view-more {
     font-size: 14px;
-    margin-top: 10px;
   }
 }
 
@@ -934,7 +972,7 @@ footer address {
   position: fixed;
   right: 50px;
   bottom: 50px;
-  z-index: 10;
+  z-index: 5;
   display: none;
 }
 @media (max-width: 1200px) {
@@ -962,5 +1000,170 @@ footer address {
   .floating-btn-box .top-btn {
     padding: 5px;
     font-size: 14px;
+  }
+}
+
+.career {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  padding: 100px;
+  overflow-y: scroll;
+  display: none;
+}
+.career.on {
+  display: block;
+}
+@media (max-width: 1400px) {
+  .career {
+    padding: 0;
+  }
+}
+.career .inner-container {
+  background-color: #FFFFFF;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+.career .tit {
+  font-family: "Noto Sans KR", sans-serif;
+  font-weight: 700;
+  font-size: 54px;
+  color: #000000;
+  padding: 50px 0;
+  position: relative;
+}
+@media (max-width: 767px) {
+  .career .tit {
+    font-size: 40px;
+  }
+}
+.career .tit .career-close {
+  position: absolute;
+  top: 50px;
+  right: 15px;
+  z-index: 15;
+  width: 30px;
+  height: 30px;
+}
+@media (max-width: 767px) {
+  .career .tit .career-close {
+    top: 25px;
+  }
+}
+.career .tit .career-close::before, .career .tit .career-close::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 2px;
+  background-color: #000000;
+}
+.career .tit .career-close::before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+.career .tit .career-close::after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+.career .list-box {
+  border-top: 1px solid #EEEEEE;
+}
+.career .list-box .list-tit {
+  font-family: "Noto Sans KR", sans-serif;
+  font-weight: 700;
+  font-size: 30px;
+  color: #000000;
+  padding: 30px 0;
+}
+@media (max-width: 767px) {
+  .career .list-box .list-tit {
+    font-size: 24px;
+  }
+}
+.career .list-box .item-wrap {
+  display: flex;
+}
+@media (max-width: 767px) {
+  .career .list-box .item-wrap {
+    flex-direction: column;
+  }
+}
+.career .list-box .item-wrap .list-item.left-list {
+  width: 30%;
+}
+@media (max-width: 767px) {
+  .career .list-box .item-wrap .list-item.left-list {
+    width: 100%;
+  }
+}
+.career .list-box .item-wrap .list-item.right-list {
+  width: 70%;
+}
+@media (max-width: 767px) {
+  .career .list-box .item-wrap .list-item.right-list {
+    width: 100%;
+  }
+}
+.career .list-box .item-wrap .list-item.right-list ul {
+  padding-bottom: 20px;
+}
+.career .list-box .item-wrap .list-item.right-list ul.p-line li {
+  position: relative;
+  padding: 5px 0 5px 25px;
+}
+.career .list-box .item-wrap .list-item.right-list ul.p-line li::before {
+  display: none;
+}
+.career .list-box .item-wrap .list-item.right-list ul.p-line li .num {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  font-family: "Noto Sans KR", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #000000;
+}
+.career .list-box .item-wrap .list-item.right-list ul li {
+  font-family: "Noto Sans KR", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  padding: 5px 0 5px 10px;
+  position: relative;
+  color: #000;
+}
+.career .list-box .item-wrap .list-item.right-list ul li::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 5px;
+  height: 2px;
+  background-color: #999999;
+}
+.career .list-box .item-wrap .list-item em {
+  font-family: "Noto Sans KR", sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  color: #000000;
+  margin-bottom: 10px;
+  display: block;
+}
+.career .list-box .item-wrap .list-item em span {
+  font-family: "Noto Sans KR", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #999999;
+  display: block;
+  margin-top: 10px;
+}
+@media (max-width: 767px) {
+  .career .list-box .item-wrap .list-item em {
+    margin: 10px 0 20px;
   }
 }
