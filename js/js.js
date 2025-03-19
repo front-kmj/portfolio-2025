@@ -139,7 +139,7 @@ $(function(){
         });
     });
 
-    //career
+    //career 경력기술서
     $(".career-btn").on("click", function(){
         $(".career").addClass("on");
         $(".page-dim").show();
